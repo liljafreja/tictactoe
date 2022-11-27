@@ -6,15 +6,12 @@ import lombok.ToString
 import java.util.*
 
 @Entity
-@EqualsAndHashCode
-@ToString
 class TicTacToeGame(
     @Id @GeneratedValue var id: UUID? = null,
     @OneToMany(cascade = [CascadeType.ALL]) var turns: MutableList<Turn> = mutableListOf()
 )
 
 @Entity
-@EqualsAndHashCode
 class Turn(
     @Id @GeneratedValue var id: Int? = null,
     var playerX: Boolean = true,
