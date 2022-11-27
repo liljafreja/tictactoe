@@ -29,6 +29,8 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.ninja-squad:springmockk:3.1.2'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
 }
 
 // Although Java does not allow one to express null-safety in its type-system,
