@@ -8,6 +8,8 @@ skinparam linetype ortho
 
 entity "TicTacToe" as e01 {
 *id : UUID <<generated>>
+--
+*firstTurnPlayerX: Boolean
 }
 
 entity "Turn" as e02 {

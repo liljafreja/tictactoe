@@ -1,19 +1,23 @@
 package com.example.tictactoe.controller
 
+import com.example.tictactoe.domain.TicTacToeConverter
+import com.example.tictactoe.domain.TicTacToeEntity
 import com.example.tictactoe.persistance.GameRepository
 import com.example.tictactoe.persistance.TicTacToeGame
 import com.example.tictactoe.persistance.Turn
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.*
 import java.util.*
+import kotlin.random.Random.Default.nextBoolean
 
 @RestController
 @Component
 @RequestMapping("/game/tictactoe")
-class TicTacToeController(private val repository: GameRepository) {
+class TicTacToeController(private val repository: GameRepository, private val converter: TicTacToeConverter) {
     @PostMapping
     fun createGame(): TicTacToeGame {
-        val newGame = TicTacToeGame()
+        val firstTurnPlayerX = nextBoolean()
+        val newGame = TicTacToeGame(firstTurnPlayerX = firstTurnPlayerX)
         return repository.save(newGame)
     }
 
@@ -23,7 +27,7 @@ class TicTacToeController(private val repository: GameRepository) {
         @RequestParam(name="playerx") playerX: Boolean,
         @RequestParam(name="xposition") xPosition: Int,
         @RequestParam(name="yposition") yPosition: Int
-    ): TicTacToeGame {
+    ): TicTacToeEntity {
         // TODO: gracefully handle not found game with 404 code
         val existingGame: TicTacToeGame = repository.findById(gameId).get()
         val turn: Turn = Turn(
@@ -32,6 +36,7 @@ class TicTacToeController(private val repository: GameRepository) {
             yPosition = yPosition
         )
         existingGame.turns.add(turn)
-        return repository.save(existingGame)
+        val savedGame = repository.save(existingGame)
+        return converter.createTicTacToeEntity(savedGame)
     }
 }

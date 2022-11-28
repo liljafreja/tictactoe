@@ -1,13 +1,12 @@
 package com.example.tictactoe.persistance
 
 import jakarta.persistence.*
-import lombok.EqualsAndHashCode
-import lombok.ToString
 import java.util.*
 
 @Entity
 class TicTacToeGame(
     @Id @GeneratedValue var id: UUID? = null,
+    var firstTurnPlayerX: Boolean = true,
     @OneToMany(cascade = [CascadeType.ALL]) var turns: MutableList<Turn> = mutableListOf()
 )
 
