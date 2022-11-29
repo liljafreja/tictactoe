@@ -24,9 +24,9 @@ class TicTacToeController(private val repository: GameRepository, private val co
     @PostMapping("/{gameId}/turns")
     fun createTurn(
         @PathVariable gameId: UUID,
-        @RequestParam(name="playerx") playerX: Boolean,
-        @RequestParam(name="xposition") xPosition: Int,
-        @RequestParam(name="yposition") yPosition: Int
+        @RequestParam(name = "playerx") playerX: Boolean,
+        @RequestParam(name = "xposition") xPosition: Int,
+        @RequestParam(name = "yposition") yPosition: Int
     ): TicTacToeEntity {
         // TODO: gracefully handle not found game with 404 code
         val existingGame: TicTacToeGame = repository.findById(gameId).get()

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 class TicTacToeConverter {
     fun createTicTacToeEntity(game: TicTacToeGame): TicTacToeEntity {
         val dimension = 3
-        val gameBoard = Array(dimension) { CharArray(dimension) {' '} }
+        val gameBoard = Array(dimension) { CharArray(dimension) { ' ' } }
         var nextTurn = if (game.firstTurnPlayerX) 'x' else 'o' // In case the game just got initialized
         for (turn in game.turns) {
             if (turn.playerX) {
