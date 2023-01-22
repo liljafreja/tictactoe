@@ -2,9 +2,9 @@ package com.example.tictactoe.controller
 
 import com.example.tictactoe.domain.TicTacToeConverter
 import com.example.tictactoe.domain.TicTacToeEntity
-import com.example.tictactoe.persistance.GameRepository
-import com.example.tictactoe.persistance.TicTacToeGame
-import com.example.tictactoe.persistance.Turn
+import com.example.tictactoe.persistence.GameRepository
+import com.example.tictactoe.persistence.TicTacToeGame
+import com.example.tictactoe.persistence.Turn
 import org.springframework.web.bind.annotation.*
 import java.util.*
 import kotlin.random.Random.Default.nextBoolean

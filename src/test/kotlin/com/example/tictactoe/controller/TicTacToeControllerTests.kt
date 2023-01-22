@@ -1,10 +1,9 @@
 package com.example.tictactoe.controller
 
-import com.example.tictactoe.persistance.GameRepository
-import com.example.tictactoe.persistance.TicTacToeGame
+import com.example.tictactoe.persistence.GameRepository
+import com.example.tictactoe.persistence.TicTacToeGame
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
-import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

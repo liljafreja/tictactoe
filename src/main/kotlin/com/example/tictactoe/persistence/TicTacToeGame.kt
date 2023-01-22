@@ -1,4 +1,4 @@
-package com.example.tictactoe.persistance
+package com.example.tictactoe.persistence
 
 import jakarta.persistence.*
 import java.util.*

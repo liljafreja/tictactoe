@@ -1,6 +1,6 @@
 package com.example.tictactoe.domain
 
-import com.example.tictactoe.persistance.TicTacToeGame
+import com.example.tictactoe.persistence.TicTacToeGame
 import org.springframework.stereotype.Component
 
 @Component
