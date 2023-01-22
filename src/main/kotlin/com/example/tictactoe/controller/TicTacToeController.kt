@@ -5,13 +5,11 @@ import com.example.tictactoe.domain.TicTacToeEntity
 import com.example.tictactoe.persistance.GameRepository
 import com.example.tictactoe.persistance.TicTacToeGame
 import com.example.tictactoe.persistance.Turn
-import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.*
 import java.util.*
 import kotlin.random.Random.Default.nextBoolean
 
 @RestController
-@Component
 @RequestMapping("/game/tictactoe")
 class TicTacToeController(private val repository: GameRepository, private val converter: TicTacToeConverter) {
     @PostMapping
